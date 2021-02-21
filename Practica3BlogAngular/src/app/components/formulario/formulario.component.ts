@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/post.interface';
 
 @Component({
   selector: 'app-formulario',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
+
+  listaPosts: Post[];
+  listaCategorias: string[];
+  categoriaSelec: string;
+  seleccionada: boolean;
 
   constructor() { }
 
