@@ -18,7 +18,19 @@ export class BlogComponent implements OnInit {
     this.seleccionada = false;
   }
 
-  ngOnInit(): void {
+
+  async ngOnInit() {
+    try {
+      this.listaPosts = await this.servicioService.getAllPosts();
+      console.log(this.listaPosts);
+
+    } catch (error) {
+      console.log(error);
+    }
+
+    this.listaCategorias = this.servicioService.getCategorias();
+
   }
+
 
 }
