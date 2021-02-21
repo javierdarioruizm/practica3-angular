@@ -33,4 +33,21 @@ export class BlogComponent implements OnInit {
   }
 
 
+  async onClick(pCategoria) {
+
+    try {
+      if (pCategoria === 'todas') {
+        this.listaPosts = await this.servicioService.getAllPosts();
+        this.categoriaSelec = 'todas';
+      } else {
+        this.listaPosts = await this.servicioService.getPostByCategoria(pCategoria);
+        this.categoriaSelec = pCategoria;
+        this.seleccionada = true;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
 }
