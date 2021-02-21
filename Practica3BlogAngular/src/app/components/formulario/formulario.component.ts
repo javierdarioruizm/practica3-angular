@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Post } from 'src/app/post.interface';
 import { ServicioService } from 'src/app/servicio.service';
 
@@ -13,7 +13,38 @@ export class FormularioComponent implements OnInit {
   listaPosts: Post[];
   formulario: FormGroup;
 
-  constructor(private servicioService: ServicioService) { }
+  constructor(private servicioService: ServicioService) {
+
+    this.formulario = new FormGroup({
+      titulo: new FormControl('', [
+        Validators.required
+
+      ]),
+      texto: new FormControl('', [
+        Validators.required,
+
+      ]),
+      autor: new FormControl('', [
+        Validators.required,
+
+      ]),
+      imagen: new FormControl('', [
+        Validators.required,
+
+      ]),
+      fecha: new FormControl('', [
+        Validators.required,
+
+      ]),
+      categoria: new FormControl('', [
+        Validators.required,
+
+      ]),
+
+    })
+
+
+  }
 
   ngOnInit(): void {
   }
