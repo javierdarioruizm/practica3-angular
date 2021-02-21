@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Post } from './post.interface';
 
+declare var Swal; // 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -67,6 +69,26 @@ export class ServicioService {
       }
       resolve(arrFiltrado);
     });
+  }
+
+
+  // Método para agregar un nuevo post al blog
+
+  agregarPost(pPost) {
+
+    return new Promise((resolve, reject) => {
+      const nuevoPost = this.listaPosts.splice(0, 0, pPost);
+      // Utilizo splice para insertar el nuevo post al principio del array
+      localStorage.setItem('ArrPosts', JSON.stringify(this.listaPosts))
+      resolve(nuevoPost);
+      Swal.fire(
+        'Post creado',
+        'Has añadido tu nuevo post al blog',
+        'success'
+      )
+      console.log(this.listaPosts);
+    });
+
   }
 
 
