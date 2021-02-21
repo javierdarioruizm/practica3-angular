@@ -38,6 +38,13 @@ export class ServicioService {
   }
 
 
+  getAllPosts(): Promise<Post[]> {
+    return new Promise((resolve, reject) => {
+      resolve(this.listaPosts);
+    });
+  }
+
+
 
 
 
