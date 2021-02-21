@@ -55,6 +55,20 @@ export class ServicioService {
     return [...new Set(arrNuevo)];
   }
 
+  // Método para filtrar los posts por categoría
+
+  getPostByCategoria(pCategoria: string): Promise<Post[]> {
+    return new Promise((resolve, reject) => {
+      const arrFiltrado = [];
+      for (let post of this.listaPosts) {
+        if (post.categoria === pCategoria) {
+          arrFiltrado.push(post);
+        }
+      }
+      resolve(arrFiltrado);
+    });
+  }
+
 
 
 
