@@ -1,0 +1,17 @@
+form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    background-color: #f5a906;
+    color: white;
+    text-align:center;
+    padding: 5px 0 10px 0;
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+.btn {
+    margin-top:30px;
+}
