@@ -13,7 +13,10 @@ export class BlogComponent implements OnInit {
   categoriaSelec: string;
   seleccionada: boolean;
 
-  constructor() { }
+  constructor(private servicioService: ServicioService) {
+
+    this.seleccionada = false;
+  }
 
   ngOnInit(): void {
   }
