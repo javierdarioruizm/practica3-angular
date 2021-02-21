@@ -1,1 +1,39 @@
-<p>blog works!</p>
+<h1 *ngIf="categoriaSelec === 'todas' || !seleccionada">Blog</h1>
+
+<div *ngFor="let categoria of listaCategorias">
+    <h1 *ngIf="categoriaSelec === categoria">{{categoriaSelec}}</h1>
+</div>
+
+<div class="container">
+
+    <div class="row gx-5">
+
+        <div class="col-sm-12 col-md-4 col-lg-4 offset-xl-1 col-xl-3">
+            <div class="categorias">
+                <h3>CATEGORÍAS</h3>
+                <ul>
+                    <li (click)="onClick('todas')">Todas</li>
+                    <li (click)="onClick(categoria)" *ngFor="let categoria of listaCategorias"
+                        [ngClass]="{seleccionada: (categoriaSelec === categoria) }">
+                        {{categoria}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-8 col-lg-8 col-xl-7">
+
+            <div class=" post" *ngFor="let post of listaPosts">
+                <img [src]="post.imagen">
+                <p class="textocategoria">{{ post.categoria }}</p>
+                <h3>{{ post.titulo }}</h3>
+                <p class="autor">{{ post.fecha }} | {{ post.autor }}</p>
+                <p>{{ post.texto }}</p>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
