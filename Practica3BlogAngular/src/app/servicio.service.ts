@@ -38,10 +38,21 @@ export class ServicioService {
   }
 
 
+  // Método para obtener todos los posts
+
   getAllPosts(): Promise<Post[]> {
     return new Promise((resolve, reject) => {
       resolve(this.listaPosts);
     });
+  }
+
+
+  // Método para obtener las categorías
+
+  getCategorias(): string[] {
+
+    const arrNuevo = this.listaPosts.map(post => post.categoria);
+    return [...new Set(arrNuevo)];
   }
 
 
