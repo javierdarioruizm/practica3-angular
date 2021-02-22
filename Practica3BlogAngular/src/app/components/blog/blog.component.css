@@ -58,6 +58,7 @@ img {
     background-color: white;
     padding-bottom: 5px;  
     margin-bottom: 30px;
+    box-shadow: 0px 4px 8px lightgrey;
 }
 
 .categorias h3 {
